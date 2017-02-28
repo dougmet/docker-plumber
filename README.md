@@ -4,7 +4,7 @@
 
 > Minimum docker image to deploy a plumber app
 
-This image installs Jeff Allen's [plumber](https://github.com/trestletech/plumber) and its dependencies (including Suggests dependencies) sets up a non-root user to run the apps and 
+This image installs Jeff Allen's [plumber](https://github.com/trestletech/plumber) and its dependencies (including Suggests dependencies) sets up a non-root user to run the apps and will launch a default app on port 8000.
 
 ## Installation
 
@@ -20,7 +20,7 @@ This image is really meant as a base image to build your apps from (example to f
 docker run -d -p 8000:8000 dougmet/plumber
 ```
 
-Then go to http://localhost:8000/mean to see the get request. Alternatively do a curl request.
+Then go to http://localhost:8000/mean to see the get request. Alternatively do a POST request via curl.
 
 ```
 curl --data "a=4&b=3" "http://localhost:8000/sum"
