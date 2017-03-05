@@ -24,11 +24,11 @@ RUN useradd plumber \
   
 # Add some default app. @TODO Should plumbapp.sh not be an R script?
 ADD demo.R /apps/demo.R
-ADD plumbapp.sh /plumbapp.sh
-RUN chmod 700 /plumbapp.sh \
+ADD plumbapp.R /plumbapp.R
+RUN chmod 700 /plumbapp.R \
   && chgrp -R staff /apps
 
 # Plumb your app into 8000
 EXPOSE 8000
 
-CMD ["/plumbapp.sh", "/apps/demo.R"]
+CMD ["Rscript", "/plumbapp.R", "-p", "8000", "/apps/demo.R"]
