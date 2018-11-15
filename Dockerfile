@@ -4,6 +4,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \ 
   libssl-dev \
   libcurl4-openssl-dev \
+  zlib1g-dev \
   && . /etc/environment \
   && install2.r --error \
     --repos 'http://www.bioconductor.org/packages/release/bioc' \
