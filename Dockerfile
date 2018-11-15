@@ -1,4 +1,4 @@
-FROM rocker/r-ver:3.3.2
+FROM rocker/r-ver:3.5.1
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \ 
