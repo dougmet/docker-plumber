@@ -1,15 +1,19 @@
-FROM rocker/r-ver:3.3.2
+FROM rocker/r-ver:3.5.1
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \ 
   libssl-dev \
   libcurl4-openssl-dev \
+  zlib1g-dev \
   && . /etc/environment \
   && install2.r --error \
     --repos 'http://www.bioconductor.org/packages/release/bioc' \
     --repos $MRAN \ 
     --deps TRUE \
-    plumber devtools
+    plumber \
+  && install2.r --error \
+    --repos $MRAN \ 
+    devtools
 # As with the tidyverse rocker image --deps TRUE downloads all of plumber's 
 # Suggests dependencies. This has testthat, XML, rmarkdown, PKI and base64enc
 # most of which sound useful for an API service.
